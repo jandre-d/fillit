@@ -6,7 +6,7 @@
 #    By: tde-jong <tde-jong@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/09 12:43:22 by tde-jong       #+#    #+#                 #
-#    Updated: 2019/01/16 16:09:04 by tde-jong      ########   odam.nl          #
+#    Updated: 2019/01/28 10:09:30 by tde-jong      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,8 @@ SRC= ft_strcat.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		get_next_line.c
 
 CFILES=$(SRC)
 
