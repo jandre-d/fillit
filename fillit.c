@@ -6,9 +6,11 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/26 16:01:47 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/29 09:01:55 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 int	main(int argc, char **argv)
 {
