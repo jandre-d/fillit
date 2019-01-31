@@ -6,14 +6,14 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:11:46 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:13:22 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../validate_input.c"
 #include "../parse_input.c"
-#include "../fillit.c"
+#include "../fillit.h"
 #include <assert.h>
 
 int	main(int argc, char **argv)
