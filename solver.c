@@ -6,7 +6,14 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/31 13:58:49 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/01/31 14:32:52 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "solver.h"
+
+int	new_map(t_state state, t_byte size)
+{
+
+
+}
