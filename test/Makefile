@@ -17,8 +17,8 @@ FLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME):
+	gcc $(FLAGS) main.c -L ../libft -lft -o $(NAME)
 	gcc $(FLAGS) input_check.c -L ../libft -lft -o input_check
-	gcc $(FLAGS) main.c -L ../libft -lft -o $(NAME) -g
 
 fclean:
 	rm -f $(NAME)
