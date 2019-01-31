@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:20:57 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:27:45 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ int	main(int argc, char **argv)
 		if (ft_atoi(argv[1]) >= 1 && ft_atoi(argv[1]) <= 26)
 		{
 			if (validate_input("input_gen/ttmnfile") != 1)
-				return (1);
+				abort();
 			if (parse_input("input_gen/ttmnfile", state) != 1)
-				return (1);
+				abort();
 			ft_putendl("input is valid, this is correct");
 		}
 		else
 		{
 			if (validate_input("input_gen/ttmnfile") != 0)
-				return (1);
+				abort();
 			if (parse_input("input_gen/ttmnfile", state) != 0)
-				return (1);
+				abort();
 			ft_putendl("input is invalid, this is correct");
 		}
 		return (0);
 	}
-	return (1);
+	abort();
 }
