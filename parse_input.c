@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:27:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:00:05 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:03:20 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static char	**str_to_array(char *str)
 
 static int	add_terimino(char *str, t_state *state)
 {
-	if (!state->tetriminos == NULL)
+	if (state->tetriminos != NULL)
 	{
 		while (state->tetriminos->next != NULL)
 			state->tetriminos = state->tetriminos->next;
