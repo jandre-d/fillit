@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fillit.h                                           :+:    :+:            */
+/*   solver.h                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/26 15:55:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 14:00:05 by jandre-d      ########   odam.nl         */
+/*   Created: 2019/01/31 13:58:45 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/31 13:59:15 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#ifndef SOLVER_H
 
-# include "libft/libft.h"
+# define SOLVER_H
 
-typedef struct			s_tetrimino
-{
-	char				**array;
-	char				w;
-	char				h;
-	struct s_tetrimino	*next;
-}						t_tetrimino;
 
 #endif
