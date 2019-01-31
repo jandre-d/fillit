@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   fillit.h                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
+/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 13:25:03 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/01/31 13:25:57 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include "libft/libft.h"
+# include "libft/libft.h"
 
 #endif
