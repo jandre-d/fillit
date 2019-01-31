@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:27:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:03:20 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:05:18 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static char	**str_to_array(char *str)
 {
 	char	**array;
 	int		i;
-	int		c;
 	int		ln;
 
 	if ((array = (char**)malloc(sizeof(char*) * 4)) == NULL)
