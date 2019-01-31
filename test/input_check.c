@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:31:24 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:40:12 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv)
 		else
 		{
 			assert(validate_input("input_gen/ttmnfile") == 0);
-			assert(parse_input("input_gen/ttmnfile", state) == 0);
 			ft_putendl("input is invalid, this is correct");
 		}
 		return (0);
