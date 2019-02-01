@@ -6,14 +6,11 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:27:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 15:11:45 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 15:51:22 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "parse_input.h"
 
 static void	verify_tetrimino_rules(char **array, int col, int row, int *matches)
 {
