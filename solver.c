@@ -3,60 +3,125 @@
 /*                                                        ::::::::            */
 /*   solver.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/01 10:01:47 by jelmer        ########   odam.nl         */
+/*   Updated: 2019/02/01 15:37:30 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
-static int get_next_place(t_state *state, t_point *dst, t_point *src)
+static void	remove(t_map *map, t_tetrimino *list,
+t_byte start_x, t_byte start_y)
 {
-	dst = ft_memcpy(dst, src, sizeof(t_point));
-	if (dst->x == state->field_size - 1)
+	t_byte x;
+	t_byte y;
+
+	y = 0;
+	while (y < list->h)
 	{
-		dst->y += 1;
-		dst->x = 0;
+		x = 0;
+		while (x < list->w)
+		{
+			if (list->array[y][x] == INPUT_BLOCK_CHAR)
+			{
+				map->field[start_y + y][start_x + x] = EMPTY_CHAR;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static void	place(t_map *map, t_tetrimino *list,
+t_byte start_x, t_byte start_y)
+{
+	t_byte x;
+	t_byte y;
+
+	y = 0;
+	while (y < list->h)
+	{
+		x = 0;
+		while (x < list->w)
+		{
+			if (list->array[y][x] == INPUT_BLOCK_CHAR)
+			{
+				map->field[start_y + y][start_x + x] = list->value;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static int	can_place(t_map *map, t_tetrimino *list,
+t_byte start_x, t_byte start_y)
+{
+	t_byte x;
+	t_byte y;
+
+	y = 0;
+	while (y < list->h)
+	{
+		x = 0;
+		while (x < list->w)
+		{
+			if (list->array[y][x] == INPUT_BLOCK_CHAR &&
+			map->field[start_y + y][start_x + x] != EMPTY_CHAR)
+				return (0);
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
+
+static int	solver(t_map *map, t_tetrimino *list)
+{
+	t_byte		x;
+	t_byte		y;
+
+	if (list == NULL)
 		return (1);
-	}
-	if (dst->y == state->field_size)
+	y = 0;
+	while (y <= map->field_size - list->h)
 	{
-		return (0);
+		x = 0;
+		while (x <= map->field_size - list->w)
+		{
+			if (can_place(map, list, x, y))
+			{
+				place(map, list, x, y);
+				if (solver(map, list->next))
+					return (1);
+				else
+					remove_block(map, list, x, y);
+			}
+			x++;
+		}
+		y++;
 	}
+	return (0);
 }
 
-static void remove_block(t_state *state, t_point *place)
+t_map	*solve(t_tetrimino *list)
 {
+	t_map *map;
 
-}
-
-static int place_block(t_state *state, t_point *place)
-{
-	return (1/* can place y/n */);
-}
-
-static int	solver(t_state *state, t_point my_place)
-{
-	t_tetrimino *cur_tet;
-
-	cur_tet = state->tetriminos;
-	while (cur_tet != NULL)
+	map = (t_map *)ft_memalloc(sizeof(t_map));
+	if (map == NULL)
+		return (NULL);
+	map->field_size = get_input_block_count(list);
+	if (alloc_map(map) == -1)
+		return (NULL);
+	while (solver(map, list) != 1)
 	{
-
-
+		free_map(map);
+		map->field_size++;
+		if (alloc_map(map) == -1)
+			return (NULL);
 	}
-
-}
-
-int	start_solve(t_state *state)
-{
-	t_point start_point;
-
-	start_point.x = 0;
-	start_point.y = 0;
-	state->field_size = get_initial_size_sqrt(get_input_block_count(state->tetriminos));
-	state->field = alloc_map(state);
-	solver(state, start_point);
+	return (map);
 }

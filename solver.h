@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   solver.h                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:45 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/31 18:53:51 by jelmer        ########   odam.nl         */
+/*   Updated: 2019/02/01 11:56:29 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

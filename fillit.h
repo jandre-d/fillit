@@ -3,16 +3,19 @@
 /*                                                        ::::::::            */
 /*   fillit.h                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 18:50:28 by jelmer        ########   odam.nl         */
+/*   Updated: 2019/02/01 14:45:37 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
+# define TRUE 1
+# define FALSE 0
+# define EMPTY_CHAR '.'
+# define INPUT_BLOCK_CHAR '#'
 # include "libft/libft.h"
 
 typedef char	t_byte;
@@ -26,17 +29,10 @@ typedef struct			s_tetrimino
 	struct s_tetrimino	*next;
 }						t_tetrimino;
 
-typedef struct			s_state
+typedef struct			s_map
 {
-	t_tetrimino			*tetriminos;
 	char				**field;
 	t_byte				field_size;
-}						t_state;
-
-typedef struct			s_point
-{
-	t_byte				x;
-	t_byte				y;
-}						t_point;
+}						t_map;
 
 #endif

@@ -3,26 +3,14 @@
 /*                                                        ::::::::            */
 /*   fillit.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 09:46:41 by jelmer        ########   odam.nl         */
+/*   Updated: 2019/02/01 15:12:44 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-t_byte	get_initial_size_sqrt(int block_count)
-{
-	int a;
-
-	a = 0;
-	while (a * a < block_count)
-	{
-		a++;
-	}
-	return (a);
-}
 
 int	get_input_block_count(t_tetrimino *list)
 {
