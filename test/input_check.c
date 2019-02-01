@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:20:24 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:36:08 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "../parse_input.c"
 #include "../fillit.h"
 #include <assert.h>
+
+
+#define KGRN "\x1B[32m"
 
 int	main(int argc, char **argv)
 {
@@ -25,13 +28,14 @@ int	main(int argc, char **argv)
 		if (ft_atoi(argv[1]) >= 1 && ft_atoi(argv[1]) <= 26)
 		{
 			assert(validate_input(argv[2]) == 1);
+			printf("%svalidate_input returned 1\n", KGRN);
 			assert(parse_input(argv[2], state) == 1);
-			ft_putendl("input is valid, this is correct");
+			printf("%sparse_input returned 1\n", KGRN);
 		}
 		else
 		{
 			assert(validate_input(argv[2]) == 0);
-			ft_putendl("input is invalid, this is correct");
+			printf("%svalidate_input returned 0\n", KGRN);
 		}
 		return (0);
 	}
@@ -41,12 +45,16 @@ int	main(int argc, char **argv)
 		if (ft_strstr(argv[2], "ko") == NULL && ft_strstr(argv[2], "bad") == NULL)
 		{
 			assert(validate_input(argv[2]) == 1);
+			printf("%svalidate_input returned 1\n", KGRN);
 			assert(parse_input(argv[2], state) == 1);
+			printf("%sparse_input returned 1\n", KGRN);
 		}
 		else
 		{
 			assert(validate_input(argv[2]) == 0);
+			printf("%svalidate_input returned 0\n", KGRN);
 			assert(parse_input(argv[2], state) == 0);
+			printf("%sparse_input returned 0\n", KGRN);
 		}
 	}
 	return (1);
