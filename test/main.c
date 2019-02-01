@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:00:18 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:01:33 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 
 #include <dirent.h>
+#include <stdio.h>
 
 int	main(void)
 {
@@ -37,6 +38,8 @@ int	main(void)
     {
         while ((dir = readdir(d)) != NULL)
         {
+			if ((ret = system(ft_strjoin(base, ft_strjoin(ft_itoa(i), " input_gen/ttmnfile")))))
+			abort();
             printf("%s\n", dir->d_name);
         }
         closedir(d);
