@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:27:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 15:51:22 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 16:31:43 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,30 @@ static char	**str_to_array(char *str)
 	return (array);
 }
 
-static int	add_terimino(char *str, t_state *state)
+static int	add_terimino(char *str, t_map *map, t_tetrimino *tet)
 {
-	if (state->tetriminos != NULL)
+	if (tet != NULL)
 	{
-		while (state->tetriminos->next != NULL)
-			state->tetriminos = state->tetriminos->next;
-		state->tetriminos = state->tetriminos->next;
+		while (tet->next != NULL)
+			tet = tet->next;
+		tet = tet->next;
 	}
-	state->tetriminos = ft_memalloc(sizeof(t_tetrimino));
-	if ((state->tetriminos->array = str_to_array(str)) == NULL)
+	tet = ft_memalloc(sizeof(t_tetrimino));
+	if ((tet->array = str_to_array(str)) == NULL)
 		return (0);
-	if (!verify_tetrimino(state->tetriminos))
+	if (!verify_tetrimino(tet))
 		return (0);
 	return (1);
 }
 
-int			parse_input(char *filename, t_state *state)
+int			parse_input(char *filename, t_map *map)
 {
 	int			fd;
 	int			ret;
 	char		buff[22];
+	t_tetrimino *tet;
 
+	tet = NULL;
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (0);
@@ -114,7 +116,7 @@ int			parse_input(char *filename, t_state *state)
 		buff[21] = '\0';
 		if (ret < 20)
 			return (1);
-		if (!add_terimino(buff, state))
+		if (!add_terimino(buff, map, tet))
 			return (0);
 	}
 	return (1);
