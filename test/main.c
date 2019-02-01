@@ -6,12 +6,14 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 09:55:38 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:00:18 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include <unistd.h>
+
+#include <dirent.h>
 
 int	main(void)
 {
@@ -27,5 +29,17 @@ int	main(void)
 			abort();
 		i++;
 	}
+
+	DIR *d;
+    struct dirent *dir;
+    d = opendir("input_example");
+    if (d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            printf("%s\n", dir->d_name);
+        }
+        closedir(d);
+    }
 	return (0);
 }
