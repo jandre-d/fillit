@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:08:34 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:18:30 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(void)
     {
         while ((dir = readdir(d)) != NULL)
         {
-			if (dir->d_name != ".." && dir->d_name != ".")
+			if (ft_strcmp(dir->d_name, "..") != 0 && ft_strcmp(dir->d_name, ".") != 0)
 				if ((ret = system(ft_strjoin(ft_strjoin(base, " "), dir->d_name))))
 					abort();
         }

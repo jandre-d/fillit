@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:15:03 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:15:35 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	else if (argc == 3)
 	{
 		t_state *state = (t_state*)ft_memalloc(sizeof(t_state));
-		if (ft_strstr(argv[2], "ko") == NULL)
+		if (ft_strstr(argv[2], "ko") == NULL && ft_strstr(argv[2], "bad") == NULL)
 		{
 			assert(validate_input(argv[2]) == 1);
 			assert(parse_input(argv[2], state) == 1);
