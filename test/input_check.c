@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:36:08 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:39:35 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../parse_input.c"
 #include "../fillit.h"
 #include <assert.h>
+#include <stdio.h>
 
 
 #define KGRN "\x1B[32m"
