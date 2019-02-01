@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:32:06 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:36:25 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
         {
 			if (ft_strcmp(dir->d_name, "..") != 0 && ft_strcmp(dir->d_name, ".") != 0)
 			{
-				ft_printf("running command: %s\n", ft_strjoin(base, ft_strjoin(" ", dir->d_name)));
+				printf("running command: %s\n", ft_strjoin(base, ft_strjoin(" ", dir->d_name)));
 				if ((ret = system(ft_strjoin(base, ft_strjoin(" ", dir->d_name)))))
 					abort();
 			}
