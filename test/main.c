@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:37:41 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:41:19 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 
 #include <dirent.h>
-#include <stdio.h>
+
 
 int	main(void)
 {
@@ -41,7 +41,7 @@ int	main(void)
         {
 			if (ft_strcmp(dir->d_name, "..") != 0 && ft_strcmp(dir->d_name, ".") != 0)
 			{
-				printf("running command: %s\n", ft_strjoin(base, ft_strjoin(" ", dir->d_name)));
+				printf("running command: %s\n", ft_strjoin(base, dir->d_name));
 				if ((ret = system(ft_strjoin(base, ft_strjoin(" ", dir->d_name)))))
 					abort();
 			}
