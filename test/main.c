@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:36:25 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:37:41 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	base = "./input_check ";
 	while (i < 28)
 	{
-		ft_printf("running command: %s\n", ft_strjoin(base, ft_strjoin(ft_itoa(i), " input_gen/ttmnfile input_gen")));
+		printf("running command: %s\n", ft_strjoin(base, ft_strjoin(ft_itoa(i), " input_gen/ttmnfile input_gen")));
 		if ((ret = system(ft_strjoin(base, ft_strjoin(ft_itoa(i), " input_gen/ttmnfile input_gen")))))
 			abort();
 		i++;
