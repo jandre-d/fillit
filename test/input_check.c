@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 14:21:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:15:35 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:20:24 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 4 && argv[3] == "input_gen")
+	if (argc == 4 && ft_strcmp(argv[3], "input_gen") == 0)
 	{
 		t_state *state = (t_state*)ft_memalloc(sizeof(t_state));
 		system(ft_strjoin("cd input_gen && python tetriminos.py ", argv[1]));
