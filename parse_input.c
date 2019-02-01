@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:27:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 16:31:43 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 17:24:12 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static char	**str_to_array(char *str)
 	return (array);
 }
 
-static int	add_terimino(char *str, t_map *map, t_tetrimino *tet)
+static int	add_terimino(char *str, t_tetrimino *tet)
 {
 	if (tet != NULL)
 	{
@@ -100,12 +100,11 @@ static int	add_terimino(char *str, t_map *map, t_tetrimino *tet)
 	return (1);
 }
 
-int			parse_input(char *filename, t_map *map)
+int			parse_input(char *filename, t_tetrimino *tet)
 {
 	int			fd;
 	int			ret;
 	char		buff[22];
-	t_tetrimino *tet;
 
 	tet = NULL;
 	fd = open(filename, O_RDONLY);
@@ -116,7 +115,7 @@ int			parse_input(char *filename, t_map *map)
 		buff[21] = '\0';
 		if (ret < 20)
 			return (1);
-		if (!add_terimino(buff, map, tet))
+		if (!add_terimino(buff, tet))
 			return (0);
 	}
 	return (1);
