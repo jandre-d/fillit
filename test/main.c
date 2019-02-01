@@ -6,7 +6,7 @@
 /*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/30 11:37:13 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 10:01:33 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 10:06:05 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 			abort();
 		i++;
 	}
-
+	sleep(10);
 	DIR *d;
     struct dirent *dir;
     d = opendir("input_example");
@@ -38,9 +38,9 @@ int	main(void)
     {
         while ((dir = readdir(d)) != NULL)
         {
-			if ((ret = system(ft_strjoin(base, ft_strjoin(ft_itoa(i), " input_gen/ttmnfile")))))
-			abort();
-            printf("%s\n", dir->d_name);
+			if (dir->d_name != '..' && dir->d_name != '.')
+				if ((ret = system(ft_strjoin(ft_strjoin(base, " "), dir->d_name))))
+					abort();
         }
         closedir(d);
     }
