@@ -6,13 +6,13 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/01 15:24:22 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/01 15:57:48 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-t_byte			get_initial_size_sqrt(int block_count)
+int				get_initial_size_sqrt(int block_count)
 {
 	int a;
 
@@ -26,7 +26,7 @@ t_byte			get_initial_size_sqrt(int block_count)
 
 void			free_map(t_map *map)
 {
-	t_byte i;
+	int i;
 
 	i = 0;
 	while (i < map->field_size)
@@ -39,7 +39,7 @@ void			free_map(t_map *map)
 
 int				alloc_map(t_map *map)
 {
-	t_byte i;
+	int i;
 
 	i = 0;
 	if (
@@ -52,4 +52,5 @@ int				alloc_map(t_map *map)
 			return (-1);
 		i++;
 	}
+	return (1);
 }

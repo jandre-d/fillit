@@ -6,17 +6,17 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/01 15:37:30 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/01 15:58:12 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
 static void	remove(t_map *map, t_tetrimino *list,
-t_byte start_x, t_byte start_y)
+int start_x, int start_y)
 {
-	t_byte x;
-	t_byte y;
+	int x;
+	int y;
 
 	y = 0;
 	while (y < list->h)
@@ -35,10 +35,10 @@ t_byte start_x, t_byte start_y)
 }
 
 static void	place(t_map *map, t_tetrimino *list,
-t_byte start_x, t_byte start_y)
+int start_x, int start_y)
 {
-	t_byte x;
-	t_byte y;
+	int x;
+	int y;
 
 	y = 0;
 	while (y < list->h)
@@ -57,10 +57,10 @@ t_byte start_x, t_byte start_y)
 }
 
 static int	can_place(t_map *map, t_tetrimino *list,
-t_byte start_x, t_byte start_y)
+int start_x, int start_y)
 {
-	t_byte x;
-	t_byte y;
+	int x;
+	int y;
 
 	y = 0;
 	while (y < list->h)
@@ -80,8 +80,8 @@ t_byte start_x, t_byte start_y)
 
 static int	solver(t_map *map, t_tetrimino *list)
 {
-	t_byte		x;
-	t_byte		y;
+	int		x;
+	int		y;
 
 	if (list == NULL)
 		return (1);
@@ -97,7 +97,7 @@ static int	solver(t_map *map, t_tetrimino *list)
 				if (solver(map, list->next))
 					return (1);
 				else
-					remove_block(map, list, x, y);
+					remove(map, list, x, y);
 			}
 			x++;
 		}
@@ -106,7 +106,7 @@ static int	solver(t_map *map, t_tetrimino *list)
 	return (0);
 }
 
-t_map	*solve(t_tetrimino *list)
+t_map		*solve(t_tetrimino *list)
 {
 	t_map *map;
 
