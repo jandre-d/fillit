@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   map.h                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
+/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:06 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/31 14:37:26 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/01 09:45:24 by jelmer        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define MAP_H
 # include "fillit.h"
 
-void	free_map(t_state state);
-int		alloc_map(t_state state, t_byte size);
+static t_byte	get_initial_size_sqrt(int block_count);
+static int	get_input_block_count(t_tetrimino *list);
+void	free_map(t_state *state);
+int		alloc_map(t_state *state);
 
 #endif

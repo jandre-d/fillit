@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   fillit.h                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
+/*   By: jelmer <jelmer@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/31 14:45:34 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:50:28 by jelmer        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,11 @@ typedef struct			s_state
 	char				**field;
 	t_byte				field_size;
 }						t_state;
+
+typedef struct			s_point
+{
+	t_byte				x;
+	t_byte				y;
+}						t_point;
 
 #endif
