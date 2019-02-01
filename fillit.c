@@ -3,14 +3,42 @@
 /*                                                        ::::::::            */
 /*   fillit.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/29 09:03:37 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/01 15:58:07 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+int	get_input_block_count(t_tetrimino *list)
+{
+	int			block_count;
+	t_tetrimino *lst;
+	int			x;
+	int			y;
+
+	block_count = 0;
+	lst = list;
+	while (lst != NULL)
+	{
+		y = 0;
+		while (y < lst->h)
+		{
+			x = 0;
+			while (x < lst->w)
+			{
+				if (lst->array[y][x] == '#')
+					block_count++;
+				x++;
+			}
+			y++;
+		}
+		lst = lst->next;
+	}
+	return (block_count);
+}
 
 int	main(int argc, char **argv)
 {

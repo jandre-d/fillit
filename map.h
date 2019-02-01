@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   solver.h                                           :+:    :+:            */
+/*   map.h                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/31 13:58:45 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/01 15:57:42 by jandre-d      ########   odam.nl         */
+/*   Created: 2019/01/31 14:34:06 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/02/01 15:57:40 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLVER_H
-# define SOLVER_H
+#ifndef MAP_H
+# define MAP_H
 # include "fillit.h"
-# include "map.h"
 
-t_map		*solve(t_tetrimino *list);
+int				get_initial_size_sqrt(int block_count);
+void			free_map(t_map *map);
+int				alloc_map(t_map *map);
 
 #endif
