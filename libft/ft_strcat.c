@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strcat.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 10:36:07 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/10 10:56:01 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 12:05:53 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:24 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	ft_strcpy(s1 + ft_strlen(s1), s2);
-	return (s1);
+	size_t	i;
+	char	*to_return;
+
+	i = 0;
+	to_return = s1;
+	while (*s1)
+	{
+		s1++;
+	}
+	while (s2[i])
+	{
+		s1[i] = s2[i];
+		i++;
+	}
+	s1[i] = '\0';
+	return (to_return);
 }

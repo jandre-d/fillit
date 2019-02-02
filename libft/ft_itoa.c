@@ -3,55 +3,59 @@
 /*                                                        ::::::::            */
 /*   ft_itoa.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 15:51:11 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 16:33:32 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 16:09:48 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 13:03:36 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	end_char(char *str, int neg, int n)
+static int	ft_intlen(int n)
 {
-	if (neg)
-		str[1] = n + '0';
-	else
-		str[0] = n + '0';
-}
+	int i;
 
-static int	int_len(int n)
-{
+	i = 1;
+	if (n == -2147483648)
+		return (11);
 	if (n < 0)
-		return (int_len(-n) + 1);
-	if (n >= 10)
-		return (int_len(n / 10) + 1);
-	return (1);
+	{
+		i++;
+		n *= -1;
+	}
+	while (n >= 10)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
 char		*ft_itoa(int n)
 {
-	char	*str;
+	int		i;
 	int		len;
-	int		neg;
+	char	*to_return;
 
-	neg = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	len = int_len(n);
-	if (((str = ft_memalloc(len + 1)) == NULL))
+	i = 0;
+	len = ft_intlen(n);
+	if ((to_return = ft_memalloc(len + 1)) == NULL)
 		return (NULL);
+	len -= 1;
 	if (n < 0)
 	{
-		str[0] = '-';
-		n = -n;
-		neg = 1;
+		to_return[i++] = '-';
+		if (n == -2147483648)
+			return (ft_strcpy(to_return, "-2147483648"));
+		else
+			n *= -1;
 	}
 	while (n >= 10)
 	{
-		str[--len] = n % 10 + '0';
-		n = n / 10;
+		to_return[len--] = n % 10 + '0';
+		n /= 10;
 	}
-	end_char(str, neg, n);
-	return (str);
+	to_return[len] = n + '0';
+	return (to_return);
 }

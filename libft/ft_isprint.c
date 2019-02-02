@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isprint.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 13:51:48 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/09 13:53:51 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 16:40:26 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:37 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

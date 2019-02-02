@@ -3,19 +3,15 @@
 /*                                                        ::::::::            */
 /*   ft_strclr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 10:07:59 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 14:08:11 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 11:16:09 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:23 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_strclr(char *s)
+void	ft_strclr(char *as)
 {
-	if (s)
-	{
-		ft_bzero(s, ft_strlen(s));
-	}
+	while (*as)
+		*(as++) = '\0';
 }

@@ -3,108 +3,88 @@
 /*                                                        ::::::::            */
 /*   ft_strsplit.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 16:42:11 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/24 11:28:49 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 13:36:47 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 12:09:08 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-static char		*ft_strtrim_char(char const *s, char rem)
+static size_t	get_array_len(char *str, char c)
 {
-	char *str;
+	size_t i;
 
-	if (s)
-	{
-		str = ft_strdup(s);
-		if (str == NULL)
-			return (NULL);
-		while (*str != '\0' && *str == rem)
-		{
-			str++;
-		}
-		str = ft_strrev(str);
-		while (*str != '\0' && *str == rem)
-		{
-			str++;
-		}
-		return (ft_strrev(str));
-	}
-	else
-	{
-		return (NULL);
-	}
-}
-
-static int		ft_word_count(char *str, char delim)
-{
-	int i;
-
+	if (!*str)
+		return (0);
 	i = 0;
 	while (*str)
 	{
-		while (*str != delim && *str)
+		while (*str && *str == c)
 			str++;
-		i++;
-		while (*str == delim && *str)
+		if (*str)
+			i++;
+		while (*str && *str != c)
 			str++;
 	}
 	return (i);
 }
 
-static int		ft_word_len_delim(char *str, char delim)
+static size_t	get_next_word_len(char *from, char c)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != delim)
+	while (*from && *from != c)
 	{
 		i++;
+		from++;
 	}
 	return (i);
 }
 
-static char		**ft_create_array(char **array, char *str, char delim)
+static char		*set_next_word(char **from, char c)
 {
-	int words;
-	int c;
+	char	*to_return;
+	size_t	i;
+	size_t	len;
 
-	words = ft_word_count(str, delim);
-	c = 0;
-	while (c < words && *str)
+	len = get_next_word_len(*from, c);
+	if ((to_return = ft_strnew(len + 1)) == NULL)
+		return (NULL);
+	i = 0;
+	while ((*from)[i] && (*from)[i] != c)
 	{
-		while (*str == delim && *str)
-			str++;
-		array[c] = ft_strnew(ft_word_len_delim(str, delim));
-		array[c] = ft_strncpy(array[c], str, ft_word_len_delim(str, delim));
-		while (*str != delim && *str)
-			str++;
-		c++;
+		to_return[i] = (*from)[i];
+		i++;
 	}
-	array[c] = ft_strnew(0);
-	array[c] = NULL;
-	return (array);
+	*from += i;
+	return (to_return);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**str;
-	char	*s1;
-	int		words;
+	char	**to_return;
+	size_t	array_len;
 
-	if (s)
+	array_len = get_array_len((char *)s, c);
+	if ((to_return = ft_memalloc(array_len * sizeof(char *) + 1)) == NULL)
+		return (NULL);
+	to_return[array_len] = 0;
+	array_len = 0;
+	while (*s)
 	{
-		if ((s1 = ft_strtrim_char(s, c)) == NULL)
-			return (NULL);
-		words = ft_word_count(s1, c);
-		if ((str = (char**)malloc(sizeof(char*) * (words + 1))) == NULL)
-			return (NULL);
-		if ((str = ft_create_array(str, s1, c)) == NULL)
-			return (NULL);
-		return (str);
+		while (*s && *s == c)
+			s++;
+		if (*s)
+		{
+			if ((to_return[array_len] = set_next_word((char **)(&s), c)) ==
+				NULL)
+				return (NULL);
+			array_len++;
+		}
 	}
-	return (NULL);
+	return (to_return);
 }

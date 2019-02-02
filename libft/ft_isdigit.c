@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isdigit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 13:13:45 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 08:50:09 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 16:27:08 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

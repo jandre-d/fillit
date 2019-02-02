@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_putchar.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 16:50:53 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/09 16:51:21 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 17:42:56 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:27 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	ft_putchar_fd(c, 1);
 }

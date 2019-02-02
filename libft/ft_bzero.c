@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_bzero.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 14:41:02 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/09 14:56:32 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 10:51:49 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:40 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,5 @@
 void	ft_bzero(void *s, size_t n)
 {
 	if (n != 0)
-	{
 		ft_memset(s, 0, n);
-	}
 }

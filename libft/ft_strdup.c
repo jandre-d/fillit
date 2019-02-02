@@ -3,24 +3,26 @@
 /*                                                        ::::::::            */
 /*   ft_strdup.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 09:47:37 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/10 10:03:03 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 11:37:46 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:21 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {
-	int		len;
-	char	*str;
+	char	*to_return;
+	size_t	len;
 
 	len = ft_strlen(s1);
-	str = (char *)malloc(len + 1);
-	if (str == NULL)
+	if ((to_return = ft_strnew(len)) == NULL)
+	{
 		return (NULL);
-	ft_strcpy(str, s1);
-	return (str);
+	}
+	ft_memcpy(to_return, s1, len);
+	return (to_return);
 }

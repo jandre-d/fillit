@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isascii.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 13:54:39 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/09 13:56:06 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 16:38:21 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

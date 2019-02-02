@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isalpha.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 13:08:04 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 09:08:19 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 16:18:02 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:39 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

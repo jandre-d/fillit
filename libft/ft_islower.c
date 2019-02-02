@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_islower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 13:26:51 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/09 13:36:53 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 16:24:22 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

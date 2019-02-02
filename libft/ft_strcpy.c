@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 09:25:37 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/10 09:29:40 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 11:43:16 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:22 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int len;
-	int i;
+	size_t i;
 
-	len = ft_strlen(src);
 	i = 0;
-	while (i < len)
+	while (src[i])
 	{
 		dst[i] = src[i];
 		i++;

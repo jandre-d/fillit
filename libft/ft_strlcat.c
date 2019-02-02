@@ -3,41 +3,32 @@
 /*                                                        ::::::::            */
 /*   ft_strlcat.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 11:36:32 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/16 14:08:30 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 12:45:11 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 15:50:00 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_min(size_t a, size_t b)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (a < b)
-		return (a);
-	return (b);
-}
+	size_t i;
+	size_t len_src;
 
-size_t			ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	dlen;
-	size_t	slen;
-
-	dlen = ft_min(size, ft_strlen(dst));
-	slen = ft_strlen(src);
-	if (dlen == size)
+	i = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (size < i)
+		i = size;
+	if (i == size)
+		return (len_src + size);
+	if (len_src >= size - i)
 	{
-		return (size + slen);
-	}
-	if (slen < size - dlen)
-	{
-		ft_strncat(dst, src, slen);
-	}
-	else
-	{
-		ft_strncat(dst, src, size - dlen - 1);
+		ft_strncat(dst, src, size - i - 1);
 		dst[size - 1] = '\0';
 	}
-	return (dlen + slen);
+	else
+		ft_strncat(dst, src, len_src + 1);
+	return (len_src + i);
 }

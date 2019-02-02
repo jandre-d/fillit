@@ -3,42 +3,58 @@
 /*                                                        ::::::::            */
 /*   ft_strtrim.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 14:18:54 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 15:00:58 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 12:52:17 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 12:11:50 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int	ft_iswhitespace(char c)
+static size_t	right_offset(char const *str, size_t len)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
+	size_t i;
+
+	i = 0;
+	if (len == 0)
+		return (0);
+	len -= 1;
+	while (len > 0 && (str[len] == ' ' || str[len] == '\n' || str[len] == '\t'))
+	{
+		len -= 1;
+		i += 1;
+	}
+	return (i);
 }
 
-char		*ft_strtrim(char const *s)
+static size_t	left_offset(char const *str)
 {
-	char *str;
+	size_t i;
 
-	if (s)
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'))
+		i += 1;
+	return (i);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t	l_off;
+	size_t	r_off;
+	size_t	old_len;
+	char	*to_return;
+
+	old_len = ft_strlen(s);
+	l_off = left_offset(s);
+	r_off = right_offset(s + l_off * sizeof(char), old_len - l_off);
+	to_return = (char *)malloc((old_len - (l_off + r_off) + 1) * sizeof(char));
+	if (to_return != NULL)
 	{
-		str = ft_strdup(s);
-		if (str == NULL)
-			return (NULL);
-		while (*str != '\0' && ft_iswhitespace(*str))
-		{
-			str++;
-		}
-		str = ft_strrev(str);
-		while (*str != '\0' && ft_iswhitespace(*str))
-		{
-			str++;
-		}
-		return (ft_strrev(str));
+		ft_memmove(to_return, s + l_off * sizeof(char),
+			old_len - l_off - r_off);
+		to_return[old_len - r_off - l_off] = '\0';
 	}
-	else
-	{
-		return (NULL);
-	}
+	return (to_return);
 }

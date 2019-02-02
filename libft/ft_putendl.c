@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_putendl.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 18:49:37 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 15:14:09 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 17:48:42 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:26 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	if (s)
-	{
-		ft_putstr(s);
-		ft_putchar('\n');
-	}
+	ft_putstr(s);
+	ft_putchar('\n');
 }
