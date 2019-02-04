@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:41:54 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/12 10:22:18 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:10:17 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	{
 		s1++;
 	}
-	while (s2[i] && n-- > 0)
+	while (s2[i] && n > 0)
 	{
+		n--;
 		s1[i] = s2[i];
 		i++;
 	}

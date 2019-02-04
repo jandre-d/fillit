@@ -6,18 +6,18 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 18:46:29 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/15 19:17:31 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:02:57 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *new;
 
-	if ((new = (t_list *)ft_memalloc(sizeof(t_list))) == NULL)
+	new = (t_list *)ft_memalloc(sizeof(t_list));
+	if (new == NULL)
 		return (NULL);
 	if (content == NULL)
 	{
@@ -27,7 +27,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	else
 	{
 		new->content_size = content_size;
-		if ((new->content = ft_memalloc(content_size)) == NULL)
+		new->content = ft_memalloc(content_size);
+		if (new->content == NULL)
 			return (NULL);
 		ft_memcpy(new->content, content, content_size);
 	}

@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 13:35:45 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/12 10:22:16 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:11:14 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (*s == (char)c)
 		{
-			prev = (char*)s;
+			prev = (char *)s;
 		}
 		s++;
 	}

@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/02 14:43:28 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 13:57:26 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	is_valid_block(char *buff)
 	{
 		if (buff[x] != EMPTY_CHAR && buff[x] != INPUT_BLOCK_CHAR)
 			return (0);
-		touching_sides += get_touching_sides_count_at(buff, x);
+		touching_sides += get_adjacent_blocks_count(buff, x);
 		if (x == 3 || x == 8 || x == 14 || x == 19)
 			x += 2;
 		else
@@ -77,8 +77,8 @@ t_tetrimino	*get_tetriminio_list(void)
 	list = NULL;
 	while (buff_usage >= 20)
 	{
-		if (buff_usage == 21 && buff[20] != '\n' ||
-		!is_valid_block(buff) || block_char > 'z')
+		if ((buff_usage == 21 && buff[20] != '\n') ||
+		is_valid_block(buff) == 0 || block_char > 'z')
 			return (NULL);
 		if (list == NULL)
 			list = get_tetrimino_elem(buff, block_char);
@@ -88,7 +88,7 @@ t_tetrimino	*get_tetriminio_list(void)
 		buff_usage = read(1, buff, 21);
 		block_char++;
 	}
-	if (buff_usage = 0 && prev_buff_usage == 20)
+	if (buff_usage == 0 && prev_buff_usage == 20)
 		return (list);
 	return (NULL);
 }

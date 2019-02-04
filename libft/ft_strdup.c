@@ -6,12 +6,11 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 11:37:46 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/12 10:22:21 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:09:23 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {
@@ -19,7 +18,8 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	if ((to_return = ft_strnew(len)) == NULL)
+	to_return = ft_strnew(len);
+	if (to_return == NULL)
 	{
 		return (NULL);
 	}

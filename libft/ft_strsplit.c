@@ -6,12 +6,11 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 13:36:47 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/16 12:09:08 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:48:28 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	get_array_len(char *str, char c)
 {
@@ -52,7 +51,8 @@ static char		*set_next_word(char **from, char c)
 	size_t	len;
 
 	len = get_next_word_len(*from, c);
-	if ((to_return = ft_strnew(len + 1)) == NULL)
+	to_return = ft_strnew(len);
+	if (to_return == NULL)
 		return (NULL);
 	i = 0;
 	while ((*from)[i] && (*from)[i] != c)
@@ -70,7 +70,8 @@ char			**ft_strsplit(char const *s, char c)
 	size_t	array_len;
 
 	array_len = get_array_len((char *)s, c);
-	if ((to_return = ft_memalloc(array_len * sizeof(char *) + 1)) == NULL)
+	to_return = (char **)ft_memalloc((array_len + 1) * sizeof(char *));
+	if (to_return == NULL)
 		return (NULL);
 	to_return[array_len] = 0;
 	array_len = 0;
@@ -80,8 +81,8 @@ char			**ft_strsplit(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			if ((to_return[array_len] = set_next_word((char **)(&s), c)) ==
-				NULL)
+			to_return[array_len] = set_next_word((char **)(&s), c);
+			if (to_return[array_len] == NULL)
 				return (NULL);
 			array_len++;
 		}

@@ -6,13 +6,13 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 16:09:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/16 13:03:36 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:49:02 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(int n)
+static int	size(int n)
 {
 	int i;
 
@@ -34,26 +34,27 @@ static int	ft_intlen(int n)
 
 char		*ft_itoa(int n)
 {
-	int		i;
-	int		len;
 	char	*to_return;
+	int		len;
 
-	i = 0;
-	len = ft_intlen(n);
-	if ((to_return = ft_memalloc(len + 1)) == NULL)
+	len = size(n) - 1;
+	to_return = ft_strnew(len + 1);
+	if (to_return == NULL)
 		return (NULL);
-	len -= 1;
+	to_return[len + 1] = '\0';
 	if (n < 0)
+		to_return[0] = '-';
+	if (n == -2147483648)
 	{
-		to_return[i++] = '-';
-		if (n == -2147483648)
-			return (ft_strcpy(to_return, "-2147483648"));
-		else
-			n *= -1;
+		n = 147483648;
+		to_return[1] = '2';
 	}
+	else if (n < 0)
+		n = -n;
 	while (n >= 10)
 	{
-		to_return[len--] = n % 10 + '0';
+		to_return[len] = n % 10 + '0';
+		len--;
 		n /= 10;
 	}
 	to_return[len] = n + '0';

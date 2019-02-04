@@ -6,12 +6,11 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 12:52:17 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/01/16 12:11:50 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 12:47:37 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	right_offset(char const *str, size_t len)
 {
@@ -49,11 +48,11 @@ char			*ft_strtrim(char const *s)
 	old_len = ft_strlen(s);
 	l_off = left_offset(s);
 	r_off = right_offset(s + l_off * sizeof(char), old_len - l_off);
-	to_return = (char *)malloc((old_len - (l_off + r_off) + 1) * sizeof(char));
+	to_return = ft_strnew(old_len - (l_off + r_off));
 	if (to_return != NULL)
 	{
 		ft_memmove(to_return, s + l_off * sizeof(char),
-			old_len - l_off - r_off);
+		old_len - l_off - r_off);
 		to_return[old_len - r_off - l_off] = '\0';
 	}
 	return (to_return);

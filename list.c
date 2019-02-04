@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:38:14 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/02 17:14:54 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 13:57:59 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ t_tetrimino	*get_tetrimino_elem(char *buff, char block_char)
 	to_return->array = alloc_array(to_return);
 	if (to_return->array == NULL)
 		return (NULL);
+	to_return->value = block_char;
 	while (i < to_return->h)
 	{
 		ft_memcpy(to_return->array[i],
