@@ -1,4 +1,4 @@
 os: osx
 osx_image: xcode8.3
 language: c
-script: cd libft && make re && cd .. && make && cd test && make test
+script: cd libft && make re && cd .. && make
