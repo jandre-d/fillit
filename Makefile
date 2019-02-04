@@ -3,16 +3,16 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: tde-jong <tde-jong@student.codam.nl>         +#+                      #
+#    By: jandre-d <jandre-d@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/26 15:51:07 by tde-jong       #+#    #+#                 #
-#    Updated: 2019/01/29 08:58:23 by tde-jong      ########   odam.nl          #
+#    Updated: 2019/02/04 17:14:20 by jandre-d      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -g
 
 LIB = -L libft -lft
 
