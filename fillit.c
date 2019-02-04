@@ -6,11 +6,13 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/04 14:11:24 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 14:26:07 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "input.h"
+#include "solver.h"
 
 int	get_input_block_count(t_tetrimino *list)
 {
