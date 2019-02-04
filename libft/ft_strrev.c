@@ -3,30 +3,33 @@
 /*                                                        ::::::::            */
 /*   ft_strrev.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 15:38:55 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/16 10:44:34 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 18:19:29 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 12:13:20 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(char *str)
+char	*ft_strrev(char *s)
 {
-	char	*ret;
-	int		len;
-	int		i;
+	size_t	i;
+	size_t	len;
+	char	temp;
 
-	len = ft_strlen(str);
-	ret = ft_memalloc(len + 1);
-	if (ret == NULL)
-		return (NULL);
 	i = 0;
+	len = ft_strlen(s);
+	if (len <= 1)
+		return (s);
+	len -= 1;
 	while (i < len)
 	{
-		ret[len - 1 - i] = str[i];
+		temp = s[i];
+		s[i] = s[len];
+		s[len] = temp;
 		i++;
+		len--;
 	}
-	return (ret);
+	return (s);
 }

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_striter.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 11:09:25 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/16 14:34:04 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 11:18:17 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:21 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	if (s && f)
+	while (s[i])
 	{
-		while (s[i] != '\0')
-		{
-			f(&s[i]);
-			i++;
-		}
+		f(s + i);
+		i++;
 	}
 }

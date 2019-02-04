@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 16:36:31 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/15 17:52:39 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 15:11:16 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 12:13:50 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	int		j;
-	int		try;
+	size_t i;
+	size_t search_off;
 
-	if (needle[0] == '\0')
-		return ((char *)haystack);
 	i = 0;
-	j = 0;
-	try = 0;
-	while (haystack[i] != '\0' && i < len)
+	if (*needle == '\0')
 	{
-		if (haystack[i] == needle[j])
+		return ((char *)haystack);
+	}
+	while (haystack[i] && i < len)
+	{
+		search_off = 0;
+		while (haystack[i + search_off] == needle[search_off] &&
+			i + search_off < len)
 		{
-			if (needle[++j] == '\0')
-				return ((char *)(haystack + i + 1 - ft_strlen(needle)));
-		}
-		else
-		{
-			j = 0;
-			i = try - 1;
-			try++;
+			search_off++;
+			if (needle[search_off] == '\0')
+			{
+				return ((char *)haystack + i);
+			}
 		}
 		i++;
 	}

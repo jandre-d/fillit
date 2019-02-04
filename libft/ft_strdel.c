@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strdel.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 09:53:34 by tde-jong      #+#    #+#                 */
-/*   Updated: 2019/01/11 09:53:34 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 11:11:43 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/12 10:22:22 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

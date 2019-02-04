@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_atoi.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 15:46:56 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 14:03:14 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/09 15:39:07 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/01/16 16:41:27 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int	result;
-	int	sign;
+	size_t	i;
+	int		times;
+	int		res;
 
 	i = 0;
-	while (ft_isspace(str[i]) || (str[i] == '+' && (str[i + 1] != '+' &&
-			str[i + 1] != '-' && !ft_isspace(str[i + 1]))))
+	times = 1;
+	res = 0;
+	while (((str[i] > 8 && str[i] < 14) || str[i] == 32) && *str)
 		i++;
-	sign = 1;
 	if (str[i] == '-')
+		times = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 	{
-		sign = -1;
+		res *= 10;
+		res += str[i] - '0';
 		i++;
 	}
-	result = 0;
-	while (ft_isdigit(str[i]))
-	{
-		result = result + str[i] - '0';
-		if (ft_isdigit(str[i + 1]))
-			result = result * 10;
-		i++;
-	}
-	return (result * sign);
+	return (res * times);
 }

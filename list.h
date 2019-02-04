@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   parse_input.h                                      :+:    :+:            */
+/*   list.h                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/31 13:27:32 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 17:24:20 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/02/02 14:38:17 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/02/04 14:20:43 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_INPUT_H
-# define PARSE_INPUT_H
+#ifndef LIST_H
+# define LIST_H
 
 # include "fillit.h"
-# include <fcntl.h>
-# include <stdlib.h>
 
-int parse_input(char *filename, t_tetrimino *tet);
+t_tetrimino	*get_tetrimino_elem(char *buff, char block_char);
 
 #endif

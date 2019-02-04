@@ -3,100 +3,44 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: tde-jong <tde-jong@student.codam.nl>         +#+                      #
+#    By: jandre-d <jandre-d@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/01/09 12:43:22 by tde-jong       #+#    #+#                 #
-#    Updated: 2019/01/28 10:09:30 by tde-jong      ########   odam.nl          #
+#    Created: 2019/01/09 10:02:55 by jandre-d       #+#    #+#                 #
+#    Updated: 2019/01/16 17:07:36 by jandre-d      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
-
-FLAGS=-Wall -Wextra -Werror
-
-HFILES=-I includes/
-
-SRC= ft_strcat.c \
-		ft_strchr.c \
-		ft_strcpy.c \
-		ft_strdup.c \
-		ft_strjoin.c \
-		ft_strmap.c \
-		ft_strmapi.c \
-		ft_strncat.c \
-		ft_strncpy.c \
-		ft_strnew.c \
-		ft_strrchr.c \
-		ft_strrev.c \
-		ft_strstr.c \
-		ft_strnstr.c \
-		ft_strsub.c \
-		ft_strtrim.c \
-		ft_atoi.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_islower.c \
-		ft_isprint.c \
-		ft_isspace.c \
-		ft_isupper.c \
-		ft_itoa.c \
-		ft_memcmp.c \
-		ft_strcmp.c \
-		ft_strequ.c \
-		ft_strncmp.c \
-		ft_strnequ.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_strlcat.c \
-		ft_strlen.c \
-		ft_memalloc.c \
-		ft_memccpy.c \
-		ft_memchr.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_bzero.c \
-		ft_memdel.c \
-		ft_putchar_fd.c \
-		ft_putchar.c \
-		ft_putendl_fd.c \
-		ft_putendl.c \
-		ft_putnbr_fd.c \
-		ft_putnbr.c \
-		ft_putstr_fd.c \
-		ft_putstr.c \
-		ft_strclr.c \
-		ft_strdel.c \
-		ft_striter.c \
-		ft_striteri.c \
-		ft_strsplit.c \
-		ft_lstnew.c \
-		ft_lstdelone.c \
-		ft_lstdel.c \
-		ft_lstadd.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		get_next_line.c
-
-CFILES=$(SRC)
-
-OFILES=$(SRC:.c=.o)
-
-all: $(NAME)
-
+NAME = libft.a
+FILES = ft_isupper ft_islower \
+	ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove \
+	ft_memchr ft_memcmp ft_strlen ft_strdup ft_strcpy \
+	ft_strncpy ft_strcat ft_strncat ft_strlcat ft_strchr \
+	ft_strrchr ft_strstr ft_strnstr ft_strcmp ft_strncmp \
+	ft_atoi ft_isalpha ft_isdigit ft_isalnum ft_isascii \
+	ft_isprint ft_toupper ft_tolower \
+	ft_memalloc ft_memdel ft_strnew ft_strclr ft_strdel \
+	ft_striter ft_striteri ft_strmap ft_strmapi \
+	ft_strequ ft_strnequ ft_strsub ft_strjoin \
+	ft_strtrim ft_strsplit ft_itoa ft_putchar ft_putstr \
+	ft_putendl ft_putnbr ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
+	ft_lstnew ft_lstdelone ft_lstdel \
+	ft_lstadd ft_lstiter ft_lstmap \
+	ft_strrev ft_islower ft_isupper
+ 
 $(NAME):
-	gcc $(FLAGS) -c $(CFILES) $(HFILES)
-	ar rc $(NAME) $(OFILES)
+	gcc -c -Wall -Wextra -Werror $(FILES:=.c)
+	ar rc $(NAME) $(FILES:=.o)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OFILES)
-	rm -f *~
-	rm -f \#*#
+	rm -f $(FILES:=.o)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+all: $(NAME)
+
+so:
+	gcc -shared -o libft.so -I. -Wall -Wextra -Werror -fPIC $(CFILES)

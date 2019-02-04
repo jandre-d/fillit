@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   validate_input.h                                   :+:    :+:            */
+/*   input.h                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/30 08:11:57 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/01 15:50:49 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/02/02 11:56:15 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/02/04 14:20:27 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VALIDATE_INPUT_H
-# define VALIDATE_INPUT_H
+#ifndef INPUT_H
+# define INPUT_H
 
-# include "libft/libft.h"
-# include <fcntl.h>
+# include "fillit.h"
+# include "list.h"
+# include <unistd.h>
 
-int	validate_input(char *filename);
+t_tetrimino	*get_tetriminio_list(void);
 
 #endif

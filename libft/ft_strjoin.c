@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: tde-jong <tde-jong@student.codam.nl>         +#+                     */
+/*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 13:05:18 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/01/14 14:58:29 by tde-jong      ########   odam.nl         */
+/*   Created: 2019/01/10 12:41:18 by jandre-d       #+#    #+#                */
+/*   Updated: 2019/02/04 13:03:19 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *str;
+	size_t	l1;
+	size_t	l2;
+	char	*to_return;
 
-	if (s1 && s2)
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	to_return = ft_strnew(l1 + l2);
+	if (to_return != NULL)
 	{
-		str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-		if (str == NULL)
-			return (NULL);
-		ft_strcpy(str, s1);
-		ft_strcpy(str + ft_strlen(s1), s2);
-		return (str);
+		ft_strcpy(to_return, s1);
+		ft_strcpy(to_return + l1, s2);
 	}
-	else
-	{
-		return (NULL);
-	}
+	return (to_return);
 }
