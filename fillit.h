@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 14:26:13 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/04 15:52:17 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define EMPTY_CHAR '.'
 # define INPUT_BLOCK_CHAR '#'
 # include "libft/libft.h"
+# include <fcntl.h>
 
 typedef struct	s_tetrimino
 {

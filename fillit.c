@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/04 14:26:07 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/04 15:55:59 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,26 @@ int	get_input_block_count(t_tetrimino *list)
 int	quit(char *msg)
 {
 	ft_putstr(msg);
-	return (0);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_tetrimino *list;
 	t_map		*result;
+	int			fd;
 
 	if (argc == 2)
 	{
-		list = get_tetriminio_list();
+		fd = open(argv[1], O_RDONLY);
+		if (fd < 1)
+			return (quit("error"));
+		list = get_tetriminio_list(fd);
 		if (list == NULL)
-			return (quit("ERROR"));
+			return (quit("error"));
 		result = solve(list);
 		if (result == NULL)
-			return (quit("ERROR"));
+			return (quit("error"));
 	}
 	else
 	{

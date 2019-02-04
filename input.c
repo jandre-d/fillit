@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 13:57:26 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 15:53:14 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	is_valid_block(char *buff)
 ** .  #  .  .  \n #  #  #  .  \n .  .  .  .  \n .  .  .  .  \n
 */
 
-t_tetrimino	*get_tetriminio_list(void)
+t_tetrimino	*get_tetriminio_list(int fd)
 {
 	char		buff[21];
 	char		block_char;
@@ -73,7 +73,7 @@ t_tetrimino	*get_tetriminio_list(void)
 	t_tetrimino *list;
 
 	block_char = 'a';
-	buff_usage = read(1, buff, 21);
+	buff_usage = read(fd, buff, 21);
 	list = NULL;
 	while (buff_usage >= 20)
 	{
@@ -85,7 +85,7 @@ t_tetrimino	*get_tetriminio_list(void)
 		else
 			list->next = get_tetrimino_elem(buff, block_char);
 		prev_buff_usage = buff_usage;
-		buff_usage = read(1, buff, 21);
+		buff_usage = read(fd, buff, 21);
 		block_char++;
 	}
 	if (buff_usage == 0 && prev_buff_usage == 20)
