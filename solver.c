@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 15:34:46 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 16:04:47 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int start_x, int start_y)
 	int x;
 	int y;
 
-	ft_putstr("remove ");
-	ft_putchar(list->value);
-	ft_putstr(" :\n");
-	print_block(list);
+	// ft_putstr("remove ");
+	// ft_putchar(list->value);
+	// ft_putstr(" :\n");
+	// print_block(list);
 	y = 0;
 	while (y < list->h)
 	{
@@ -36,9 +36,9 @@ int start_x, int start_y)
 		}
 		y++;
 	}
-	ft_putstr("resulting map:\n");
-	print_map(map);
-	ft_putchar('\n');
+	// ft_putstr("resulting map:\n");
+	// print_map(map);
+	// ft_putchar('\n');
 }
 
 static void	place(t_map *map, t_tetrimino *list,
@@ -47,10 +47,10 @@ int start_x, int start_y)
 	int x;
 	int y;
 
-	ft_putstr("place ");
-	ft_putchar(list->value);
-	ft_putstr(" :\n");
-	print_block(list);
+	// ft_putstr("place ");
+	// ft_putchar(list->value);
+	// ft_putstr(" :\n");
+	// print_block(list);
 	y = 0;
 	while (y < list->h)
 	{
@@ -65,9 +65,9 @@ int start_x, int start_y)
 		}
 		y++;
 	}
-	ft_putstr("resulting map: \n");
-	print_map(map);
-	ft_putchar('\n');
+	// ft_putstr("resulting map: \n");
+	// print_map(map);
+	// ft_putchar('\n');
 }
 
 static int	can_place(t_map *map, t_tetrimino *list,
