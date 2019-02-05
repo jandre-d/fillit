@@ -6,13 +6,13 @@
 #    By: jandre-d <jandre-d@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/26 15:51:07 by tde-jong       #+#    #+#                 #
-#    Updated: 2019/02/05 09:07:56 by jandre-d      ########   odam.nl          #
+#    Updated: 2019/02/05 14:51:32 by jandre-d      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-FLAGS = -Wall -g
+FLAGS = -Wall -g -Werror -Wextra
 
 LIB = -L libft -lft
 

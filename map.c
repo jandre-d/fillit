@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 14:44:30 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 15:35:06 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,18 @@ int				alloc_map(t_map *map)
 	int i;
 
 	i = 0;
-	map->field = (char **)ft_memalloc((map->field_size + 1) * 4);
+	map->field = (char **)ft_memalloc((map->field_size + 1) * sizeof(char *));
 	if (map->field == NULL)
 		return (-1);
 	while (i < map->field_size)
 	{
-		map->field[i] = (char *)ft_memalloc(map->field_size + 1);
+		map->field[i] = (char *)ft_memalloc((map->field_size + 1) * sizeof(char));
 		ft_memset(map->field[i], '.', map->field_size);
 		if (map->field[i] == NULL)
 			return (-1);
 		i++;
 	}
+	ft_putstr("malloc new map :\n");
+	print_map(map);
 	return (1);
 }

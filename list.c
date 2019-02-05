@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:38:14 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 17:37:07 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 15:16:39 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static char	**alloc_array(t_tetrimino *block)
 	int		x;
 
 	x = 0;
-	to_return = (char **)ft_memalloc(block->h * sizeof(char **) + 1);
+	to_return = (char **)ft_memalloc((block->h + 1) * sizeof(char *));
 	if (to_return == NULL)
 		return (NULL);
 	while (x < block->h)
 	{
-		to_return[x] = (char *)ft_memalloc(block->w * sizeof(char *) + 1);
+		to_return[x] = (char *)ft_memalloc((block->w + 1) * sizeof(char));
 		if (to_return[x] == NULL)
 			return (NULL);
 		x++;
@@ -95,10 +95,8 @@ t_tetrimino	*get_tetrimino_elem(char *buff, char block_char)
 	while (i < to_return->h)
 	{
 		ft_memcpy(to_return->array[i],
-		buff + index_x_start + i * 5, to_return->w);
-		index_y_start++;
+		buff + index_x_start + (i + index_y_start) * 5, to_return->w);
 		i++;
 	}
-	print_block(to_return);
 	return (to_return);
 }
