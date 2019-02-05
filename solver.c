@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/01 15:58:12 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 16:34:03 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ t_map		*solve(t_tetrimino *list)
 	map = (t_map *)ft_memalloc(sizeof(t_map));
 	if (map == NULL)
 		return (NULL);
-	map->field_size = get_input_block_count(list);
+	map->field_size = get_initial_size_sqrt(get_input_block_count(list));
 	if (alloc_map(map) == -1)
 		return (NULL);
 	while (solver(map, list) != 1)

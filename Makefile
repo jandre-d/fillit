@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: tde-jong <tde-jong@student.codam.nl>         +#+                      #
+#    By: jandre-d <jandre-d@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/26 15:51:07 by tde-jong       #+#    #+#                 #
-#    Updated: 2019/01/29 08:58:23 by tde-jong      ########   odam.nl          #
+#    Updated: 2019/02/05 16:27:51 by tde-jong      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC = *.c
 all: $(NAME)
 
 $(NAME):
+	cd libft && make
 	gcc $(FLAGS) $(SRC) $(LIB) -o $(NAME)
 
 clean:

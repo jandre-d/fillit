@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:38:14 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 13:57:59 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 15:16:39 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static char	**alloc_array(t_tetrimino *block)
 	int		x;
 
 	x = 0;
-	to_return = (char **)ft_memalloc(block->h * sizeof(char **) + 1);
+	to_return = (char **)ft_memalloc((block->h + 1) * sizeof(char *));
 	if (to_return == NULL)
 		return (NULL);
 	while (x < block->h)
 	{
-		to_return[x] = (char *)ft_memalloc(block->w * sizeof(char *) + 1);
+		to_return[x] = (char *)ft_memalloc((block->w + 1) * sizeof(char));
 		if (to_return[x] == NULL)
 			return (NULL);
 		x++;
@@ -45,10 +45,10 @@ static void	set_size_width(char *buff, t_tetrimino *block, int *index_x_start)
 		buff[x + 10] == EMPTY_CHAR &&
 		buff[x + 15] == EMPTY_CHAR)
 		{
-			if (*index_x_start == 42)
-				*index_x_start = x;
 			block->w--;
 		}
+		else if (*index_x_start == 42)
+			*index_x_start = x;
 		x++;
 	}
 }
@@ -58,7 +58,7 @@ static void	set_size_height(char *buff, t_tetrimino *block, int *index_y_start)
 	int x;
 
 	x = 0;
-	block->w = 4;
+	block->h = 4;
 	*index_y_start = 42;
 	while (x < 4)
 	{
@@ -67,10 +67,10 @@ static void	set_size_height(char *buff, t_tetrimino *block, int *index_y_start)
 		buff[2 + x * 5] == EMPTY_CHAR &&
 		buff[3 + x * 5] == EMPTY_CHAR)
 		{
-			if (*index_y_start == 42)
-				*index_y_start = x;
 			block->h--;
 		}
+		else if (*index_y_start == 42)
+			*index_y_start = x;
 		x++;
 	}
 }
@@ -95,8 +95,7 @@ t_tetrimino	*get_tetrimino_elem(char *buff, char block_char)
 	while (i < to_return->h)
 	{
 		ft_memcpy(to_return->array[i],
-		buff + (i + index_y_start) * 5 + index_x_start, to_return->w);
-		index_y_start++;
+		buff + index_x_start + (i + index_y_start) * 5, to_return->w);
 		i++;
 	}
 	return (to_return);

@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 		result = solve(list);
 		if (result == NULL)
 			return (quit("error"));
+		print_map(result);
 	}
 	else
 	{
