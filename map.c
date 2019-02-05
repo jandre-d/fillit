@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 15:35:06 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 16:28:37 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int				alloc_map(t_map *map)
 			return (-1);
 		i++;
 	}
-	ft_putstr("malloc new map :\n");
-	print_map(map);
+	// ft_putstr("malloc new map :\n");
+	// print_map(map);
 	return (1);
 }
