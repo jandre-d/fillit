@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 16:34:34 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/05 19:58:43 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void			print_map(t_map *block)
 		ft_putchar('\n');
 		i++;
 	}
-	ft_putchar('\n');
 }
 
 void			free_map(t_map *map)
