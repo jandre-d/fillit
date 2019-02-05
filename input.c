@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 15:40:54 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 16:21:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	get_adjacent_blocks_count(char *buff, int index)
 	int x;
 
 	x = 0;
-	if (index > 5 && buff[index - 5] == INPUT_BLOCK_CHAR)
+	if (index > 4 && buff[index - 5] == INPUT_BLOCK_CHAR)
 		x++;
 	if (index < 14 && buff[index + 5] == INPUT_BLOCK_CHAR)
 		x++;
