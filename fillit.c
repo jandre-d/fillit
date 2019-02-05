@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/05 15:21:47 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/04 16:33:26 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	get_input_block_count(t_tetrimino *list)
 
 int	quit(char *msg)
 {
-	ft_putstr(msg);
+	ft_putendl(msg);
 	return (1);
 }
 
