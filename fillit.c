@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/04 15:55:59 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/05 14:46:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 		result = solve(list);
 		if (result == NULL)
 			return (quit("error"));
+		print_map(result);
 	}
 	else
 	{

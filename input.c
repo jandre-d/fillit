@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 08:41:52 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 14:48:09 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ t_tetrimino	*get_tetriminio_list(int fd)
 	ssize_t		prev_buff_usage;
 	t_tetrimino *list;
 
-	block_char = 'a';
+	block_char = 'A';
 	buff_usage = read(fd, buff, 21);
 	list = NULL;
 	while (buff_usage >= 20)
 	{
 		if ((buff_usage == 21 && buff[20] != '\n') ||
-		is_valid_block(buff) == 0 || block_char > 'z')
+		is_valid_block(buff) == 0 || block_char > 'Z')
 			return (NULL);
 		if (list == NULL)
 			list = get_tetrimino_elem(buff, block_char);

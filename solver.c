@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 17:52:22 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 14:48:51 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int start_x, int start_y)
 	int x;
 	int y;
 
+	print_map(map);
 	y = 0;
 	while (y < list->h)
 	{
