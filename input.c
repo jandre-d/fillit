@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 17:38:48 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/05 08:41:52 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,18 @@ static int	is_valid_block(char *buff)
 		if (buff[x] != EMPTY_CHAR && buff[x] != INPUT_BLOCK_CHAR)
 			return (0);
 		if (buff[x] == INPUT_BLOCK_CHAR)
+		{
 			touching_sides += get_adjacent_blocks_count(buff, x);
+			if (touching_sides == 0)
+				return (0);
+		}
 		if (x == 3 || x == 8 || x == 13 || x == 18)
 			x += 2;
 		else
 			x++;
 	}
-	if (touching_sides == 6 || touching_sides == 8)
-		return (1);
-	return (0);
+	return (
+		(touching_sides == 6 || touching_sides == 8) ? 1 : 0);
 }
 
 /*
