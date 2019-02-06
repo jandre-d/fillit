@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/06 11:30:08 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:38:00 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,12 @@ int	get_input_block_count(t_tetrimino *list)
 {
 	int			block_count;
 	t_tetrimino *lst;
-	int			x;
-	int			y;
 
 	block_count = 0;
 	lst = list;
 	while (lst != NULL)
 	{
-		y = 0;
-		while (y < lst->h)
-		{
-			x = 0;
-			while (x < lst->w)
-			{
-				if (lst->array[y][x] == '#')
-					block_count++;
-				x++;
-			}
-			y++;
-		}
+		block_count += 4;
 		lst = lst->next;
 	}
 	return (block_count);
