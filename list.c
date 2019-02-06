@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:38:14 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 15:16:39 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:50:12 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	set_size_height(char *buff, t_tetrimino *block, int *index_y_start)
 	}
 }
 
-t_tetrimino	*get_tetrimino_elem(char *buff, char block_char)
+t_tetrimino	*get_tetrimino_elem(char *buff, char *block_char)
 {
 	t_tetrimino *to_return;
 	int			index_x_start;
@@ -91,7 +91,7 @@ t_tetrimino	*get_tetrimino_elem(char *buff, char block_char)
 	to_return->array = alloc_array(to_return);
 	if (to_return->array == NULL)
 		return (NULL);
-	to_return->value = block_char;
+	to_return->value = *block_char;
 	while (i < to_return->h)
 	{
 		ft_memcpy(to_return->array[i],
