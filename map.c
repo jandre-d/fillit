@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 19:58:43 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:23:42 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@ int				get_initial_size_sqrt(int block_count)
 		a++;
 	}
 	return (a);
-}
-
-void			print_block(t_tetrimino *block)
-{
-	int i;
-
-	i = 0;
-	while (i < block->h)
-	{
-		ft_putstr(block->array[i]);
-		ft_putchar('\n');
-		i++;
-	}
-	ft_putchar('\n');
 }
 
 void			print_map(t_map *block)
