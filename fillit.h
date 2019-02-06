@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/04 15:52:17 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:45:32 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ typedef struct	s_map
 	char	**field;
 	int		field_size;
 }				t_map;
-
-int				get_input_block_count(t_tetrimino *list);
 
 #endif
