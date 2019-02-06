@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 11:24:34 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:26:41 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ static int	is_valid_block(char *buff)
 		else
 			x++;
 	}
-	return (
-		(touching_sides == 6 || touching_sides == 8) ? 1 : 0);
+	return ((touching_sides == 6 || touching_sides == 8));
 }
 
 /*
