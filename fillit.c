@@ -6,13 +6,14 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/06 11:45:05 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 14:01:46 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "input.h"
 #include "solver.h"
+#include "map.h"
 
 int	quit(char *msg)
 {
@@ -38,6 +39,7 @@ int	main(int argc, char **argv)
 		if (result == NULL)
 			return (quit("error"));
 		print_map(result);
+		free_alles(list, result);
 	}
 	else
 	{
