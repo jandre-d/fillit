@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 13:01:25 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 15:21:50 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			free_map(t_map *map)
 		ft_memdel((void **)&map->field[i]);
 		i++;
 	}
-	ft_memdel((void **)map->field);
+	ft_memdel((void **)&map->field);
 }
 
 int				alloc_map(t_map *map)

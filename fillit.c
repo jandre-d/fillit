@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:14 by tde-jong       #+#    #+#                */
-/*   Updated: 2019/02/06 11:45:05 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 15:24:08 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "input.h"
 #include "solver.h"
 
-int	quit(char *msg)
+static int	quit(char *msg)
 {
 	ft_putendl(msg);
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_tetrimino *list;
 	t_map		*result;
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 		list = get_tetriminio_list(fd);
 		if (list == NULL)
 			return (quit("error"));
+		close(fd);
 		result = solve(list);
 		if (result == NULL)
 			return (quit("error"));
