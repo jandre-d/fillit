@@ -6,30 +6,11 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 15:14:58 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/06 15:21:50 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-
-void			free_alles(t_tetrimino *tet_list, t_map *map)
-{
-	t_tetrimino *list;
-	t_tetrimino *list_prev;
-	int			x;
-	int			y;
-
-	x = 0;
-	y = 0;
-	list = tet_list;
-	free_map(map);
-	while (list != NULL)
-	{
-		list_prev = list;
-		list = list->next;
-		free_tetrimino_elem(list_prev);
-	}
-}
 
 int				get_initial_field_size(t_tetrimino *list)
 {

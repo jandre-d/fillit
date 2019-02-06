@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:38:14 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 13:58:21 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/06 15:22:03 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,6 @@ static void	set_size_height(char *buff, t_tetrimino *block, int *index_y_start)
 			*index_y_start = x;
 		x++;
 	}
-}
-
-void		free_tetrimino_elem(t_tetrimino *elem)
-{
-	int y;
-
-	y = 0;
-	while (y < elem->h)
-	{
-		ft_memdel((void **)&elem->array[y]);
-		y++;
-	}
-	ft_memdel((void **)&elem->array);
-	ft_memdel((void **)&elem);
 }
 
 t_tetrimino	*get_tetrimino_elem(char *buff, char *block_char)

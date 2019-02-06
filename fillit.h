@@ -6,16 +6,16 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 15:55:39 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 11:45:32 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 15:24:38 by jandre-d      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# define TRUE 1
-# define FALSE 0
+
 # define EMPTY_CHAR '.'
 # define INPUT_BLOCK_CHAR '#'
+
 # include "libft/libft.h"
 # include <fcntl.h>
 
