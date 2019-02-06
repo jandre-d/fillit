@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 16:21:38 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:50:57 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 ** search up-down-left-right respectively
 */
 
-static int	get_adjacent_blocks_count(char *buff, int index)
+static int	get_adjacent_blocks_count(char *buff, int *index)
 {
 	int x;
 
 	x = 0;
-	if (index > 4 && buff[index - 5] == INPUT_BLOCK_CHAR)
+	if (*index > 4 && buff[*index - 5] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index < 14 && buff[index + 5] == INPUT_BLOCK_CHAR)
+	if (*index < 14 && buff[*index + 5] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index % 5 > 0 && buff[index - 1] == INPUT_BLOCK_CHAR)
+	if (*index % 5 > 0 && buff[*index - 1] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index % 5 < 4 && buff[index + 1] == INPUT_BLOCK_CHAR)
+	if (*index % 5 < 4 && buff[*index + 1] == INPUT_BLOCK_CHAR)
 		x++;
 	return (x);
 }
@@ -49,7 +49,7 @@ static int	is_valid_block(char *buff)
 			return (0);
 		if (buff[x] == INPUT_BLOCK_CHAR)
 		{
-			touching_sides += get_adjacent_blocks_count(buff, x);
+			touching_sides += get_adjacent_blocks_count(buff, &x);
 			if (touching_sides == 0)
 				return (0);
 		}
@@ -58,8 +58,7 @@ static int	is_valid_block(char *buff)
 		else
 			x++;
 	}
-	return (
-		(touching_sides == 6 || touching_sides == 8) ? 1 : 0);
+	return ((touching_sides == 6 || touching_sides == 8));
 }
 
 /*
@@ -92,9 +91,9 @@ t_tetrimino	*get_tetriminio_list(int fd)
 		is_valid_block(buff) == 0 || block_char > 'Z')
 			return (NULL);
 		if (list == NULL)
-			list = get_tetrimino_elem(buff, block_char);
+			list = get_tetrimino_elem(buff, &block_char);
 		else
-			list_add(list, get_tetrimino_elem(buff, block_char));
+			list_add(list, get_tetrimino_elem(buff, &block_char));
 		prev_buff_usage = buff_usage;
 		buff_usage = read(fd, buff, 21);
 		block_char++;

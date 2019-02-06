@@ -6,14 +6,14 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 13:58:48 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 16:34:03 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:44:44 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solver.h"
 
 static void	remove(t_map *map, t_tetrimino *list,
-int start_x, int start_y)
+int *start_x, int *start_y)
 {
 	int x;
 	int y;
@@ -26,7 +26,7 @@ int start_x, int start_y)
 		{
 			if (list->array[y][x] == INPUT_BLOCK_CHAR)
 			{
-				map->field[start_y + y][start_x + x] = EMPTY_CHAR;
+				map->field[*start_y + y][*start_x + x] = EMPTY_CHAR;
 			}
 			x++;
 		}
@@ -35,7 +35,7 @@ int start_x, int start_y)
 }
 
 static void	place(t_map *map, t_tetrimino *list,
-int start_x, int start_y)
+int *start_x, int *start_y)
 {
 	int x;
 	int y;
@@ -48,7 +48,7 @@ int start_x, int start_y)
 		{
 			if (list->array[y][x] == INPUT_BLOCK_CHAR)
 			{
-				map->field[start_y + y][start_x + x] = list->value;
+				map->field[*start_y + y][*start_x + x] = list->value;
 			}
 			x++;
 		}
@@ -57,7 +57,7 @@ int start_x, int start_y)
 }
 
 static int	can_place(t_map *map, t_tetrimino *list,
-int start_x, int start_y)
+int *start_x, int *start_y)
 {
 	int x;
 	int y;
@@ -69,7 +69,7 @@ int start_x, int start_y)
 		while (x < list->w)
 		{
 			if (list->array[y][x] == INPUT_BLOCK_CHAR &&
-			map->field[start_y + y][start_x + x] != EMPTY_CHAR)
+			map->field[*start_y + y][*start_x + x] != EMPTY_CHAR)
 				return (0);
 			x++;
 		}
@@ -91,13 +91,13 @@ static int	solver(t_map *map, t_tetrimino *list)
 		x = 0;
 		while (x <= map->field_size - list->w)
 		{
-			if (can_place(map, list, x, y))
+			if (can_place(map, list, &x, &y))
 			{
-				place(map, list, x, y);
+				place(map, list, &x, &y);
 				if (solver(map, list->next))
 					return (1);
 				else
-					remove(map, list, x, y);
+					remove(map, list, &x, &y);
 			}
 			x++;
 		}
@@ -113,7 +113,7 @@ t_map		*solve(t_tetrimino *list)
 	map = (t_map *)ft_memalloc(sizeof(t_map));
 	if (map == NULL)
 		return (NULL);
-	map->field_size = get_initial_size_sqrt(get_input_block_count(list));
+	map->field_size = get_initial_field_size(list);
 	if (alloc_map(map) == -1)
 		return (NULL);
 	while (solver(map, list) != 1)

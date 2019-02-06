@@ -6,36 +6,31 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/05 16:34:34 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:41:25 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int				get_initial_size_sqrt(int block_count)
+int				get_initial_field_size(t_tetrimino *list)
 {
-	int a;
+	int			block_count;
+	int			i;
+	t_tetrimino *lst;
 
-	a = 0;
-	while (a * a < block_count)
+	lst = list;
+	block_count = 0;
+	while (lst != NULL)
 	{
-		a++;
+		block_count += 4;
+		lst = lst->next;
 	}
-	return (a);
-}
-
-void			print_block(t_tetrimino *block)
-{
-	int i;
-
 	i = 0;
-	while (i < block->h)
+	while (i * i < block_count)
 	{
-		ft_putstr(block->array[i]);
-		ft_putchar('\n');
 		i++;
 	}
-	ft_putchar('\n');
+	return (i);
 }
 
 void			print_map(t_map *block)
@@ -49,7 +44,6 @@ void			print_map(t_map *block)
 		ft_putchar('\n');
 		i++;
 	}
-	ft_putchar('\n');
 }
 
 void			free_map(t_map *map)
