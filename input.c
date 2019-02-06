@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 11:56:18 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 11:26:41 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/06 11:27:58 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 ** search up-down-left-right respectively
 */
 
-static int	get_adjacent_blocks_count(char *buff, int index)
+static int	get_adjacent_blocks_count(char *buff, int *index)
 {
 	int x;
 
 	x = 0;
-	if (index > 4 && buff[index - 5] == INPUT_BLOCK_CHAR)
+	if (*index > 4 && buff[*index - 5] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index < 14 && buff[index + 5] == INPUT_BLOCK_CHAR)
+	if (*index < 14 && buff[*index + 5] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index % 5 > 0 && buff[index - 1] == INPUT_BLOCK_CHAR)
+	if (*index % 5 > 0 && buff[*index - 1] == INPUT_BLOCK_CHAR)
 		x++;
-	if (index % 5 < 4 && buff[index + 1] == INPUT_BLOCK_CHAR)
+	if (*index % 5 < 4 && buff[*index + 1] == INPUT_BLOCK_CHAR)
 		x++;
 	return (x);
 }
@@ -49,7 +49,7 @@ static int	is_valid_block(char *buff)
 			return (0);
 		if (buff[x] == INPUT_BLOCK_CHAR)
 		{
-			touching_sides += get_adjacent_blocks_count(buff, x);
+			touching_sides += get_adjacent_blocks_count(buff, &x);
 			if (touching_sides == 0)
 				return (0);
 		}
