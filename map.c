@@ -6,7 +6,7 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/08 17:21:27 by tde-jong      ########   odam.nl         */
+/*   Updated: 2019/02/08 17:24:34 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static int		count_blocks(t_tetrimino *tet)
 		{
 			if (tet->array[y][x] == INPUT_BLOCK_CHAR)
 				block_count++;
-			if (block_count > 4)
-				return (-1);
 			x++;
 		}
 		y++;
