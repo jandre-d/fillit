@@ -6,11 +6,35 @@
 /*   By: jandre-d <jandre-d@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 14:34:09 by jandre-d       #+#    #+#                */
-/*   Updated: 2019/02/06 15:21:50 by jandre-d      ########   odam.nl         */
+/*   Updated: 2019/02/08 17:21:27 by tde-jong      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+
+static int		count_blocks(t_tetrimino *tet)
+{
+	int y;
+	int x;
+	int block_count;
+
+	block_count = 0;
+	y = 0;
+	while (y < tet->h)
+	{
+		x = 0;
+		while (x < tet->w)
+		{
+			if (tet->array[y][x] == INPUT_BLOCK_CHAR)
+				block_count++;
+			if (block_count > 4)
+				return (-1);
+			x++;
+		}
+		y++;
+	}
+	return (block_count);
+}
 
 int				get_initial_field_size(t_tetrimino *list)
 {
@@ -22,7 +46,10 @@ int				get_initial_field_size(t_tetrimino *list)
 	block_count = 0;
 	while (lst != NULL)
 	{
-		block_count += 4;
+		if (count_blocks(lst) != 4)
+			return (-1);
+		else
+			block_count += 4;
 		lst = lst->next;
 	}
 	i = 0;
